@@ -58,3 +58,5 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+Assets/Shader/Desaturate.shadergraph
+Assets/Shader/Desaturate.shadergraph.meta
