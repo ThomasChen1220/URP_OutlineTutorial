@@ -27,7 +27,8 @@ VertexOutput Vertex(Attributes input) {
 }
 
 float4 Fragment(VertexOutput input) : SV_Target{
-	return _StencilColor;
+	//return _StencilColor;
+	return float4(0,0,0,0);
 }
 
 #endif

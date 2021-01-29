@@ -3,19 +3,20 @@
 	Properties{
 		_Thickness("Thickness", Float) = 1 // The amount to extrude the outline mesh
 		_Color("Color", Color) = (1, 1, 1, 1) // The outline color
-		_StencilColor("StencilColor", Color) = (1 ,1, 1, 1) 
+		//_StencilColor("StencilColor", Color) = (1 ,1, 1, 1) 
 	}
 	SubShader{
 		Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" }
 		Pass {
 			Name "StencilWrite"
 
+			//ZTest NotEqual
 			Stencil
 			{
 				Ref 1
 				Comp always
 				Pass replace
-				ZFail keep
+				//ZFail keep
 			}
 
 			HLSLPROGRAM

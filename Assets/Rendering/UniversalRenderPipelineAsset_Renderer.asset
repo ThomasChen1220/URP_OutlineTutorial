@@ -23,7 +23,7 @@ MonoBehaviour:
         m_Bits: 1024
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 5cbaa0a07e2e3074cad7a01758d2b908, type: 2}
-    overrideMaterialPassIndex: 0
+    overrideMaterialPassIndex: 1
     overrideDepthState: 0
     depthCompareFunction: 8
     enableWrite: 0
@@ -53,15 +53,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: NewRenderObjects
+    passTag: Stencil
     Event: 300
     filterSettings:
       RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
-        m_Bits: 0
+        m_Bits: 1024
       PassNames: []
-    overrideMaterial: {fileID: 0}
+    overrideMaterial: {fileID: 2100000, guid: 5cbaa0a07e2e3074cad7a01758d2b908, type: 2}
     overrideMaterialPassIndex: 0
     overrideDepthState: 0
     depthCompareFunction: 4
@@ -91,9 +91,9 @@ MonoBehaviour:
   m_Name: UniversalRenderPipelineAsset_Renderer
   m_EditorClassIdentifier: 
   m_RendererFeatures:
-  - {fileID: -4288798850101564477}
   - {fileID: -4041070412370430649}
-  m_RendererFeatureMap: c3ab973a2b207bc447b551d6de3bebc7
+  - {fileID: -4288798850101564477}
+  m_RendererFeatureMap: 47b551d6de3bebc7c3ab973a2b207bc4
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
