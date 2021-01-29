@@ -45,7 +45,7 @@ public class OutlineNormalCalculatorWindow : EditorWindow
     {
         foreach (GameObject obj in Selection.gameObjects)
         {
-            Mesh mesh = obj.GetComponent<MeshFilter>().mesh;
+            Mesh mesh = obj.GetComponent<MeshFilter>().sharedMesh;
             CalculateRoundedNormal(mesh);
         }
     }
