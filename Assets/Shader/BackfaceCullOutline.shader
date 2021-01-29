@@ -2,15 +2,14 @@
 {
 	Properties{
 		_Thickness("Thickness", Float) = 1 // The amount to extrude the outline mesh
-		_Color("Color", Color) = (1, 1, 1, 1) // The outline color
-		//_StencilColor("StencilColor", Color) = (1 ,1, 1, 1) 
+		[HDR]_Color("Color", Color) = (1, 1, 1, 1) // The outline color
+		[Toggle(ENABLE_STENCIL)] _Stencil("Stencil", Float) = 0
 	}
 	SubShader{
 		Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" }
 		Pass {
 			Name "StencilWrite"
 
-			//ZTest NotEqual
 			Stencil
 			{
 				Ref 1
@@ -28,6 +27,8 @@
 			#pragma vertex Vertex
 			#pragma fragment Fragment
 
+			#pragma shader_feature ENABLE_STENCIL
+
 			// Include our logic file
 			#include "StencilWrite.hlsl"    
 
@@ -37,7 +38,7 @@
 			Name "Outlines"
 			// Cull front faces
 			Cull Front
-
+			ZTest ON
 			Stencil
 			{
 				Ref 1

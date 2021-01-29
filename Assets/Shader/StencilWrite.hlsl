@@ -19,16 +19,16 @@ float4 _StencilColor;
 
 VertexOutput Vertex(Attributes input) {
 	VertexOutput output = (VertexOutput)0;
-
+#ifdef ENABLE_STENCIL
 	// Convert this position to world and clip space
 	output.positionCS = GetVertexPositionInputs(input.positionOS).positionCS;
 
+#endif
 	return output;
 }
 
 float4 Fragment(VertexOutput input) : SV_Target{
-	//return _StencilColor;
-	return float4(0,0,0,0);
+	return float4(1, 1, 1, 1);
 }
 
 #endif

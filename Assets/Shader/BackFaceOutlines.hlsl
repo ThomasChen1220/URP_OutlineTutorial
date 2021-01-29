@@ -32,6 +32,14 @@ VertexOutput Vertex(Attributes input) {
 	// Convert this position to world and clip space
 	output.positionCS = TransformWorldToHClip(posWS);
 
+	//float4 posCS = TransformObjectToHClip(input.positionOS);
+	//float4 normalCS = TransformObjectToHClip(input.normalOS);
+
+	//// Extrude the world space position along a normal vector
+	//posCS = posCS + normalCS * _Thickness;
+	//// Convert this position to world and clip space
+	//output.positionCS = posCS;
+
 	return output;
 }
 
