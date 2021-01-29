@@ -8,6 +8,9 @@
 struct Attributes {
 	float4 positionOS       : POSITION; // Position in object space
 	float3 normalOS         : NORMAL; // Normal vector in object space
+#ifdef USE_PRECALCULATED_OUTLINE_NORMALS
+	float3 smoothNormalOS   : TEXCOORD1; // Calculated "smooth" normals to extrude along in object space
+#endif
 };
 
 // Output from the vertex function and input to the fragment function
@@ -22,23 +25,20 @@ float4 _Color;
 VertexOutput Vertex(Attributes input) {
 	VertexOutput output = (VertexOutput)0;
 
-	float3 normalOS = input.normalOS;
+	float3 normalOS;
+#ifdef USE_PRECALCULATED_OUTLINE_NORMALS
+	normalOS = input.smoothNormalOS;
+#else
+	normalOS = input.normalOS;
+#endif
 
 	float3 posWS = TransformObjectToWorld(input.positionOS);
-	float3 normalWS = TransformObjectToWorldNormal(input.normalOS);
+	float3 normalWS = TransformObjectToWorldNormal(normalOS);
 
 	// Extrude the world space position along a normal vector
 	posWS = posWS + normalWS * _Thickness;
 	// Convert this position to world and clip space
 	output.positionCS = TransformWorldToHClip(posWS);
-
-	//float4 posCS = TransformObjectToHClip(input.positionOS);
-	//float4 normalCS = TransformObjectToHClip(input.normalOS);
-
-	//// Extrude the world space position along a normal vector
-	//posCS = posCS + normalCS * _Thickness;
-	//// Convert this position to world and clip space
-	//output.positionCS = posCS;
 
 	return output;
 }

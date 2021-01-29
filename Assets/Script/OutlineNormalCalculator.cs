@@ -1,16 +1,54 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEditor;
 
-// Require a mesh filter component
-// This script, unfortunately, does not support skinned meshes
-[RequireComponent(typeof(MeshFilter))]
-public class OutlineNormalsCalculator : MonoBehaviour
+public class OutlineNormalCalculatorWindow : EditorWindow
 {
     // Store these outline normals in the specified UV/Texcoord channel
     // This corresponds to the TEXCOORD_ semantics in HLSL
     [SerializeField] private int storeInTexcoordChannel = 1;
     // The maximum distance apart two vertices must be to be merged
-    [SerializeField] private float cospatialVertexDistance = 0.01f;
+    private float cospatialVertexDistance = 0.01f;
+
+
+    [MenuItem("Tools/Outline Normal Calculator")]
+    public static void ShowWindow()
+    {
+        GetWindow<OutlineNormalCalculatorWindow>("Outline Normal Calculator");
+    }
+
+    void OnGUI()
+    {
+        GUILayout.Label("Calculate rounded normal for selected object", EditorStyles.boldLabel);
+
+        storeInTexcoordChannel = EditorGUILayout.IntField("TexcoordChannel", storeInTexcoordChannel);
+
+        if (GUILayout.Button("Calculate!"))
+        {
+            CalculateAllSelected();
+        }
+        if (GUILayout.Button("Clear"))
+        {
+            ClearSelected();
+        }
+    }
+    private void ClearSelected()
+    {
+        foreach (GameObject obj in Selection.gameObjects)
+        {
+            Mesh mesh = obj.GetComponent<MeshFilter>().mesh;
+            mesh.SetUVs(storeInTexcoordChannel, new Vector3[mesh.vertices.Length]);
+        }
+    }
+
+    private void CalculateAllSelected()
+    {
+        foreach (GameObject obj in Selection.gameObjects)
+        {
+            Mesh mesh = obj.GetComponent<MeshFilter>().mesh;
+            CalculateRoundedNormal(mesh);
+        }
+    }
 
     // This class holds the accumulated normal for merged, or cospatial, vertices
     private class CospatialVertex
@@ -19,13 +57,11 @@ public class OutlineNormalsCalculator : MonoBehaviour
         public Vector3 accumulatedNormal;
     }
 
+
     // We'll run the algorithm in the start function
     // It would be better to run this in the editor at compile time, but that's another video
-    private void Start()
+    private void CalculateRoundedNormal(Mesh mesh)
     {
-        // Get the mesh
-        Mesh mesh = GetComponent<MeshFilter>().mesh;
-
         // Copy the vertices and triangle arrays from the mesh
         Vector3[] vertices = mesh.vertices;
         int[] triangles = mesh.triangles;
