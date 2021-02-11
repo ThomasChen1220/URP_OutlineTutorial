@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
-public class DepthNormalsFeature : ScriptableRendererFeature
+public class RecordTextureFeature : ScriptableRendererFeature
 {
     class RenderPass : ScriptableRenderPass
     {
@@ -61,29 +61,27 @@ public class DepthNormalsFeature : ScriptableRendererFeature
     [System.Serializable]
     public class Settings
     {
-        public bool writeDepth = true;
         public bool writeNormal = true;
         public bool writeDepthNormal = true;
-        public bool writeColor = true;
     }
 
     [SerializeField]
     private Settings settings = new Settings();
 
     private RenderPass depthNormalPass;
-    private RenderPass depthPass;
+    private RenderPass normalPass;
 
     public override void Create()
     {
         Material depthNormalMaterial = CoreUtils.CreateEngineMaterial("DepthNormal/DepthNormalsTexture");
         this.depthNormalPass = new RenderPass(depthNormalMaterial, "_DepthNormalsTexture");
 
-        Material depthMaterial = CoreUtils.CreateEngineMaterial("DepthNormal/DepthTexture");
-        this.depthPass = new RenderPass(depthMaterial, "_DepthTexture");
+        Material normalMaterial = CoreUtils.CreateEngineMaterial("DepthNormal/NormalTexture");
+        this.normalPass = new RenderPass(normalMaterial, "_NormalTexture");
 
         // Render after shadow caster, depth, etc. passes
         depthNormalPass.renderPassEvent = RenderPassEvent.AfterRenderingPrePasses;
-        depthPass.renderPassEvent = RenderPassEvent.AfterRenderingPrePasses;
+        normalPass.renderPassEvent = RenderPassEvent.AfterRenderingPrePasses;
     }
 
     public override void AddRenderPasses(ScriptableRenderer renderer, ref RenderingData renderingData)
@@ -92,9 +90,9 @@ public class DepthNormalsFeature : ScriptableRendererFeature
         {
             renderer.EnqueuePass(depthNormalPass);
         }
-        if (settings.writeDepth)
+        if (settings.writeNormal)
         {
-            renderer.EnqueuePass(depthPass);
+            renderer.EnqueuePass(normalPass);
         }
     }
 }

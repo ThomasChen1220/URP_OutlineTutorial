@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EdgeDetectOutline_PostProcessing
-  m_Shader: {fileID: -6465566751694194690, guid: 6487070b23aeeea4c9e122b2ac38245e,
+  m_Name: ColorTexture
+  m_Shader: {fileID: -6465566751694194690, guid: 89c35049df29d5444933190284ed9c4d,
     type: 3}
-  m_ShaderKeywords: REQUIRE_DEPTH_TEXTURE
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -49,10 +49,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_2408A234: 0.04
-    - Vector1_4F788137: 0.13
-    - Vector1_662AB033: 48.44
-    - Vector1_CE531B2: 1.56
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -75,12 +71,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_6922C586: {r: 0, g: 0, b: 0, a: 1}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
---- !u!114 &6409563357097202090
+--- !u!114 &3982319952104010009
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

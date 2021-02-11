@@ -21,6 +21,10 @@ static float sobelYMatrix[9] = {
 	-1, -2, -1
 };
 
+float GetDepth(float2 UV) {
+	return SHADERGRAPH_SAMPLE_SCENE_DEPTH(UV);
+}
+
 // This function runs the sobel algorithm over the depth texture
 void DepthSobel_float(float2 UV, float Thickness, out float Out) {
 	float2 sobel = 0;
@@ -34,7 +38,8 @@ void DepthSobel_float(float2 UV, float Thickness, out float Out) {
 	Out = length(sobel);
 }
 
+// This function just return the depth
 void DepthTexture_float(float2 UV, out float Out) {
-	Out = SHADERGRAPH_SAMPLE_SCENE_DEPTH(UV); 
+	Out = GetDepth(UV);
 }
 #endif

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: Outlines
+  m_Name: CullOutlines
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: Outlines
+    passTag: CullOutlines
     Event: 300
     filterSettings:
       RenderQueueType: 0
@@ -49,11 +49,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: Stencil
+  m_Name: Cull Outlines Stencil
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: Stencil
+    passTag: Cull Outlines Stencil
     Event: 250
     filterSettings:
       RenderQueueType: 0
@@ -88,14 +88,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d0b3a9b099df41345b078b564b14191c, type: 3}
-  m_Name: NewDepthNormalsFeature
+  m_Name: RecordNormalColor
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    writeDepth: 1
     writeNormal: 1
     writeDepthNormal: 1
-    writeColor: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,10 +144,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d745cac2484883b4b9431067fc81bd45, type: 3}
-  m_Name: EdgeDetectOutline
+  m_Name: TextureVisualizer
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   settings:
-    material: {fileID: 2100000, guid: 9e426788fed595141a3d58604828a510, type: 2}
+    material: {fileID: 2100000, guid: a00c952edb8f05a4081709a40256ed60, type: 2}
     materialPassIndex: 0
     renderEvent: 500

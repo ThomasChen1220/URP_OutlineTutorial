@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EdgeDetectOutline_PostProcessing
-  m_Shader: {fileID: -6465566751694194690, guid: 6487070b23aeeea4c9e122b2ac38245e,
+  m_Name: DepthTexture
+  m_Shader: {fileID: -6465566751694194690, guid: 4d0fc95ea88a0f44693589fadd28887e,
     type: 3}
-  m_ShaderKeywords: REQUIRE_DEPTH_TEXTURE
+  m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -25,6 +25,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailTex:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
@@ -49,10 +53,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_2408A234: 0.04
-    - Vector1_4F788137: 0.13
-    - Vector1_662AB033: 48.44
-    - Vector1_CE531B2: 1.56
+    - ENUM_AF64E064: 0
+    - ENUM_BD46B6A8: 1
+    - Vector1_2408A234: 0.01
+    - Vector1_4F788137: 1
+    - Vector1_662AB033: 1
+    - Vector1_CE531B2: 3.38
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -72,6 +78,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _WindQuality: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
@@ -79,6 +86,7 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
 --- !u!114 &6409563357097202090
 MonoBehaviour:
