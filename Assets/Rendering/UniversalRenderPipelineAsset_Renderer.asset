@@ -78,6 +78,24 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
+--- !u!114 &-243444776136273894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b3a9b099df41345b078b564b14191c, type: 3}
+  m_Name: NewDepthNormalsFeature
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    writeDepth: 1
+    writeNormal: 1
+    writeDepthNormal: 1
+    writeColor: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -93,7 +111,9 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -4041070412370430649}
   - {fileID: -4288798850101564477}
-  m_RendererFeatureMap: 47b551d6de3bebc7c3ab973a2b207bc4
+  - {fileID: 5627192428983431136}
+  - {fileID: -243444776136273894}
+  m_RendererFeatureMap: 47b551d6de3bebc7c3ab973a2b207bc4e02f5334b3cd174e1a10f913441c9ffc
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
@@ -116,3 +136,20 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
+--- !u!114 &5627192428983431136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d745cac2484883b4b9431067fc81bd45, type: 3}
+  m_Name: EdgeDetectOutline
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    material: {fileID: 2100000, guid: 9e426788fed595141a3d58604828a510, type: 2}
+    materialPassIndex: 0
+    renderEvent: 500
