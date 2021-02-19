@@ -28,8 +28,8 @@ static float sobelYMatrix[9] = {
 };
 
 float GetDepth(float2 UV) {
-	//return SHADERGRAPH_SAMPLE_SCENE_DEPTH(UV);
-	return Linear01Depth(SHADERGRAPH_SAMPLE_SCENE_DEPTH(UV.xy), _ZBufferParams);
+	return SHADERGRAPH_SAMPLE_SCENE_DEPTH(UV);
+	//return Linear01Depth(SHADERGRAPH_SAMPLE_SCENE_DEPTH(UV.xy), _ZBufferParams);
 }
 float4 GetDiagDepths(float2 UV, float Thickness) {
 	float4 res;
