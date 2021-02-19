@@ -111,7 +111,8 @@ MonoBehaviour:
   - {fileID: -4288798850101564477}
   - {fileID: 5627192428983431136}
   - {fileID: -243444776136273894}
-  m_RendererFeatureMap: 47b551d6de3bebc7c3ab973a2b207bc4e02f5334b3cd174e1a10f913441c9ffc
+  - {fileID: 2942119597386074120}
+  m_RendererFeatureMap: 47b551d6de3bebc7c3ab973a2b207bc4e02f5334b3cd174e1a10f913441c9ffc0888e9902f82d428
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
@@ -134,6 +135,23 @@ MonoBehaviour:
     failOperation: 0
     zFailOperation: 0
   m_ShadowTransparentReceive: 1
+--- !u!114 &2942119597386074120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d745cac2484883b4b9431067fc81bd45, type: 3}
+  m_Name: EdgeDetectOutline
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    material: {fileID: 2100000, guid: 194e54886a5a43748a1282b6bd1f5b18, type: 2}
+    materialPassIndex: 0
+    renderEvent: 500
 --- !u!114 &5627192428983431136
 MonoBehaviour:
   m_ObjectHideFlags: 0
