@@ -32,6 +32,14 @@ VertexOutput Vertex(Attributes input) {
 	normalOS = input.normalOS;
 #endif
 
+#ifdef USE_SCREEN_SPACE_THICKNESS
+	float4 clipPosition = TransformObjectToHClip(input.positionOS);
+	float3 clipNormal = mul((float3x3) UNITY_MATRIX_VP, mul((float3x3) UNITY_MATRIX_M, normalOS));
+
+	float2 offset = normalize(clipNormal.xy) / _ScreenParams.xy * _Thickness * clipPosition.w * 200;
+	clipPosition.xy += offset;
+	output.positionCS = clipPosition;
+#else
 	float3 posWS = TransformObjectToWorld(input.positionOS);
 	float3 normalWS = TransformObjectToWorldNormal(normalOS);
 
@@ -39,7 +47,8 @@ VertexOutput Vertex(Attributes input) {
 	posWS = posWS + normalWS * _Thickness;
 	// Convert this position to world and clip space
 	output.positionCS = TransformWorldToHClip(posWS);
-
+#endif
+	
 	return output;
 }
 

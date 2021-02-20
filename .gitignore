@@ -62,3 +62,17 @@ Assets/Shader/Desaturate.shadergraph
 Assets/Shader/Desaturate.shadergraph.meta
 Assets/Outline Shader/
 Assets/Outline Shader.meta
+Assets/Scripts/Editor/Gifs/
+Assets/Scripts/CaptureToGIF.cs
+Assets/Scripts/CaptureToGIF.cs.meta
+Assets/Scripts/GIFEncoder.cs
+Assets/Scripts/GIFEncoder.cs.meta
+Assets/Scripts/Image.cs
+Assets/Scripts/Image.cs.meta
+Assets/Scripts/LZWEncoder.cs
+Assets/Scripts/LZWEncoder.cs.meta
+Assets/Scripts/NeuQuant.cs
+Assets/Scripts/NeuQuant.cs.meta
+Assets/Scripts/Editor/CaptureToGifEditor.cs
+Assets/Scripts/Editor/CaptureToGifEditor.cs.meta
+Assets/Scripts/Editor/Gifs.meta
